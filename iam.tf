@@ -6,6 +6,10 @@ resource "aws_iam_user" "new_user" {
   name = "new_user"
 }
 
+resource "aws_iam_user" "new_user2" {
+  name = "new_user2"
+}
+
 resource "aws_iam_group" "developers" {
   name = "developers"
 }
@@ -15,6 +19,7 @@ resource "aws_iam_group_membership" "team" {
 
   users = [
     aws_iam_user.new_user.name,
+    aws_iam_user.new_user2.name,
   ]
 
   group = aws_iam_group.developers.name
